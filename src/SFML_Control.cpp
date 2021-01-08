@@ -57,12 +57,9 @@ void SFML_Control::pollEvents()
 void SFML_Control::render()
 {
 	this->window.clear();
-	Matrix a(1, 3), b(1, 3), c(1, 3);
-	generateMat1x3(a, 100, 100, 0);
-	generateMat1x3(b, 200, 100, 0);
-	generateMat1x3(c, 150, 200, 0);
-	Matrix d[3] = { a, b, c };
-	this->renderer->draw(d, sf::Color::Green);
+
+	Vector tri[3]{ {100, 100, 0}, {200, 100, 0}, {150, 200, 0} };
+	this->renderer->draw(tri, sf::Color::Green);
 
 	this->renderer->render(this->window);
 

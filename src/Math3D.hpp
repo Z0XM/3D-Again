@@ -1,26 +1,27 @@
 #pragma once
-#include "Matrix.hpp"
+#include "Vector.hpp"
 
-float dot(Matrix, Matrix);
-Matrix cross(Matrix, Matrix);
-float crossMag(Matrix, Matrix);
+Vector unit(Vector);
+float dot(Vector, Vector);
+Vector cross(Vector, Vector);
+float crossMag(Vector, Vector);
 
 class Line {
 public:
-	Matrix a, b;
+	Vector a, b;
 	Line();
-	Line(Matrix a, Matrix b);
-	Matrix point(float K);
+	Line(Vector a, Vector b);
+	Vector point(float K);
 	~Line();
 };
 
 class Plane {
 public:
-	Matrix p, n;
+	Vector p, n;
 	Plane();
-	Plane(Matrix p, Matrix n);
-	Plane(Matrix a, Matrix b, Matrix c);
+	Plane(Vector p, Vector n);
+	Plane(Vector a, Vector b, Vector c);
 	~Plane();
 };
 
-Matrix intersectionLinePlane(Line, Plane);
+Vector intersectionLinePlane(Line, Plane);
